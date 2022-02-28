@@ -8,10 +8,10 @@
 import Foundation
 import CoreLocation
 
-class LocationHandler: NSObject, CLLocationManagerDelegate, ObservableObject {
+class LocationHandler: NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     let geocoder = CLGeocoder()
-    @Published var lastKnownLocation: [String: String] = [:]
+    weak var stateController: StateController?
     
     override init() {
         super.init()
@@ -30,16 +30,10 @@ class LocationHandler: NSObject, CLLocationManagerDelegate, ObservableObject {
         if let firstLocation = locations.first {
             geocoder.reverseGeocodeLocation(firstLocation, completionHandler: { (placemarks, error) in
                 if error != nil {
-                    self.lastKnownLocation["Error"] = "Could not perform lookup of location from coordinate information"
+                    self.stateController?.locationAndArtists = "Could not perform lookup of location from coordinate information"
                 } else {
                     if let firstPlacemark = placemarks?[0] {
-                        self.lastKnownLocation["City"] = firstPlacemark.locality ?? "Couldn't find locality"
-                        self.lastKnownLocation["Country"] = firstPlacemark.country ?? "Couldn't find country"
-                        self.lastKnownLocation["State / Province"] = firstPlacemark.administrativeArea ?? "Couldn't find State / Province"
-                        self.lastKnownLocation["Street"] = firstPlacemark.thoroughfare ?? "Couldn't find street"
-                        self.lastKnownLocation["Altitude"] = String(firstLocation.altitude)
-                        self.lastKnownLocation["Latitude"] = String(firstLocation.coordinate.latitude)
-                        self.lastKnownLocation["Longitude"] = String(firstLocation.coordinate.longitude)
+                        self.stateController?.locationAndArtists = firstPlacemark.getLocationBreakdown()
                     }
                 }
             })
@@ -47,6 +41,6 @@ class LocationHandler: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        lastKnownLocation["Error"] = "Error finding location"
+        self.stateController?.locationAndArtists = "Error finding location"
     }
 }
