@@ -19,6 +19,8 @@
 		C5C0EFFC27CD766100D7EC3E /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0EFFB27CD766100D7EC3E /* CLPlacemark.swift */; };
 		C5C0EFFF27CD7C4D00D7EC3E /* ArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0EFFE27CD7C4D00D7EC3E /* ArtistResponse.swift */; };
 		C5C0F00127CD7C7200D7EC3E /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0F00027CD7C7200D7EC3E /* Artist.swift */; };
+		C5F6997327D170FA007086C6 /* ITunesAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6997227D170FA007086C6 /* ITunesAdaptor.swift */; };
+		C5F6997527D17AD7007086C6 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6997427D17AD7007086C6 /* Genre.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		C5C0EFFB27CD766100D7EC3E /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
 		C5C0EFFE27CD7C4D00D7EC3E /* ArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResponse.swift; sourceTree = "<group>"; };
 		C5C0F00027CD7C7200D7EC3E /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		C5F6997227D170FA007086C6 /* ITunesAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesAdaptor.swift; sourceTree = "<group>"; };
+		C5F6997427D17AD7007086C6 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 				C5B1CCB427CA0F7E00418EA6 /* Preview Content */,
 				C5B1CCD827CA105900418EA6 /* LocationHandler.swift */,
 				C5C0EFF927CD75FD00D7EC3E /* StateController.swift */,
+				C5F6997227D170FA007086C6 /* ITunesAdaptor.swift */,
 			);
 			path = MusicByLocation;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			children = (
 				C5C0EFFE27CD7C4D00D7EC3E /* ArtistResponse.swift */,
 				C5C0F00027CD7C7200D7EC3E /* Artist.swift */,
+				C5F6997427D17AD7007086C6 /* Genre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F6997527D17AD7007086C6 /* Genre.swift in Sources */,
 				C5B1CCD927CA105900418EA6 /* LocationHandler.swift in Sources */,
+				C5F6997327D170FA007086C6 /* ITunesAdaptor.swift in Sources */,
 				C5C0EFFA27CD75FD00D7EC3E /* StateController.swift in Sources */,
 				C5B1CCB127CA0F7C00418EA6 /* ContentView.swift in Sources */,
 				C5B1CCAF27CA0F7C00418EA6 /* MusicByLocationApp.swift in Sources */,
